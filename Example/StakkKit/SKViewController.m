@@ -8,6 +8,9 @@
 
 #import "SKViewController.h"
 
+// StakkKit
+#import "StakkKit.h"
+
 @interface SKViewController ()
 
 @end
@@ -18,6 +21,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    SKNetworkManager *manager = [[SKNetworkManager alloc] init];
+    manager.test = @"This is testing";
 }
 
 - (void)didReceiveMemoryWarning
