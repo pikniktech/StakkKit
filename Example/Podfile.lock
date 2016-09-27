@@ -1,0 +1,39 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - JSONModel (1.5.1)
+  - Kiwi (2.4.0)
+  - StakkKit (0.1.0):
+    - AFNetworking (~> 3.1.0)
+    - JSONModel (~> 1.5.1)
+
+DEPENDENCIES:
+  - Kiwi
+  - StakkKit (from `../`)
+
+EXTERNAL SOURCES:
+  StakkKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  StakkKit: 305dd3e583c4e09e358522e1b20e56b98c18ac23
+
+PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
+
+COCOAPODS: 1.0.1
