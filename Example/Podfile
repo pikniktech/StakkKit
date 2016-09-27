@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'StakkKit_Example' do
+  pod 'StakkKit', :path => '../'
+
+  target 'StakkKit_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  end
+end
