@@ -1,29 +1,28 @@
 //
-//  SKViewController.m
+//  SFViewController.m
 //  StakkKit
 //
 //  Created by Derek on 09/27/2016.
 //  Copyright (c) 2016 Derek. All rights reserved.
 //
 
-#import "SKViewController.h"
+#import "SFViewController.h"
 
 // StakkKit
 #import "StakkKit.h"
 
-@interface SKViewController ()
+@interface SFViewController ()
 
 @end
 
-@implementation SKViewController
+@implementation SFViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    SKNetworkManager *manager = [[SKNetworkManager alloc] init];
-    manager.test = @"This is testing";
+    SFNetworkManager *manager = [[SFNetworkManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,11 +7,11 @@
 //
 
 @import UIKit;
-#import "SKAppDelegate.h"
+#import "SFAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SKAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SFAppDelegate class]));
     }
 }

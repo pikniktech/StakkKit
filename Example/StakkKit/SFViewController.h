@@ -1,5 +1,5 @@
 //
-//  SKAppDelegate.h
+//  SFViewController.h
 //  StakkKit
 //
 //  Created by Derek on 09/27/2016.
@@ -8,8 +8,6 @@
 
 @import UIKit;
 
-@interface SKAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface SFViewController : UIViewController
 
 @end
