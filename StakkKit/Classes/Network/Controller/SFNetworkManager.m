@@ -32,12 +32,12 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
 
 + (instancetype)sharedInstance {
     
-    static SFNetworkManager *sharedInstance = nil;
+    static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         
-        sharedInstance = [[SFNetworkManager alloc] init];
+        sharedInstance = [[[self class] alloc] init];
         [sharedInstance setup];
     });
     
