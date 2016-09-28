@@ -51,4 +51,4 @@ typedef NS_ENUM(NSUInteger, SFLogLevel){
 #define SFLogAPI(frmt, ...)     LOG_MAYBE(SFLOG_ASYNC_API,     SFLOG_LEVEL_ALL, SFLOG_FLAG_API,     0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat(frmt), ##__VA_ARGS__)
 #define SFLogDebug(frmt, ...)   LOG_MAYBE(SFLOG_ASYNC_DEBUG,   SFLOG_LEVEL_ALL, SFLOG_FLAG_DEBUG,   0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat(frmt), ##__VA_ARGS__)
 
-#define CustomLoggingFormat(frmt) (@"\n%s\n[Line %d]\n"frmt"\n\n"), __PRETTY_FUNCTION__, __LINE__
+#define CustomLoggingFormat(frmt) (@"\n%s\n[Line %d]\n"frmt"\n"), __PRETTY_FUNCTION__, __LINE__
