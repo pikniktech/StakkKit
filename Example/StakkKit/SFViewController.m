@@ -25,6 +25,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self setupLogging];
+    [self setupDatabaseManager];
     [self makeSampleRequest];
 }
 
@@ -39,6 +40,11 @@
     SFLogDebug(@"Debug Log");
 }
 
+- (void)setupDatabaseManager {
+    
+    [SFDatabaseManager sharedInstance];
+}
+
 - (void)makeSampleRequest {
     
     SFNetworkManager *manager = [SFNetworkManager sharedInstance];
@@ -46,7 +52,7 @@
     [manager requestWithURL:@"https://mxlbw0t3ia.execute-api.ap-northeast-1.amazonaws.com/prod/startup"
                      method:SFRequestMethodGET
                  parameters:nil
-          cachePeriodInSecs:0
+          cachePeriodInSecs:60
                     success:^(NSDictionary *responseDict) {
                         
                         SFLogDebug(@"Request succeed");

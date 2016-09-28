@@ -15,7 +15,7 @@
 #import "SFLog.h"
 
 //// Controllers
-//#import "YCDatabaseManager.h"
+#import "SFDatabaseManager.h"
 
 typedef void (^SFActionSuccessBlock)(NSString *url, NSDictionary *responseDict, SFRequestSuccessBlock successBlock, BOOL isFromCache, CGFloat cachePeriodInSecs);
 typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFailureBlock failure);
@@ -76,18 +76,18 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
         
         if (!isFromCache && cachePeriodInSecs > 0) {
             
-//            [[YCDatabaseManager sharedInstance] createOrUpdateAPICacheWithURL:url
-//                                                                       method:[self stringForMethod:method]
-//                                                                   parameters:parameters
-//                                                                     response:responseDict
-//                                                            cachePeriodInSecs:cachePeriodInSecs
-//                                                                     complete:^(BOOL success) {
-//                                                                         
-//                                                                         if (successBlock) {
-//                                                                             
-//                                                                             successBlock(responseDict);
-//                                                                         }
-//                                                                     }];
+            [[SFDatabaseManager sharedInstance] createOrUpdateAPICacheWithURL:url
+                                                                       method:[SFNetworkManager stringForMethod:method]
+                                                                   parameters:parameters
+                                                                     response:responseDict
+                                                            cachePeriodInSecs:cachePeriodInSecs
+                                                                     complete:^(BOOL success) {
+                                                                         
+                                                                         if (successBlock) {
+                                                                             
+                                                                             successBlock(responseDict);
+                                                                         }
+                                                                     }];
         } else {
             
             if (successBlock) {
@@ -118,16 +118,15 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
     [SFNetworkManager startRequestLoggingWithMethod:method URL:url parameters:parameters];
     
     // Try to get response from cache
-//    YCAPICacheDBModel *model = [[YCDatabaseManager sharedInstance] getAPICacheWithURL:url
-//                                                                               method:[self stringForMethod:method]
-//                                                                           parameters:parameters];
+    SFDBAPICache *model = [[SFDatabaseManager sharedInstance] getAPICacheWithURL:url
+                                                                          method:[SFNetworkManager stringForMethod:method]
+                                                                      parameters:parameters];
     
     NSURLSessionDataTask *task = nil;
     
-    if (NO) {
-//    if (model) {
-//        
-//        successActionBlock(url, model.response, success, YES, cachePeriodInSecs);
+    if (model) {
+        
+        successActionBlock(url, model.response, success, YES, cachePeriodInSecs);
         
     } else {
         

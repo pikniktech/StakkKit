@@ -24,10 +24,14 @@ PODS:
     - CocoaLumberjack/Default
   - JSONModel (1.5.1)
   - Kiwi (2.4.0)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
   - StakkKit (0.1.1):
     - AFNetworking (~> 3.1.0)
     - CocoaLumberjack (~> 3.0.0)
     - JSONModel (~> 1.5.1)
+    - MagicalRecord (~> 2.3.2)
 
 DEPENDENCIES:
   - Kiwi
@@ -42,7 +46,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  StakkKit: ea863c1cdc4d61dfe5d50845b7e246e9b891712d
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  StakkKit: 9391b1098c2f58608ec046524092f931bc42c3b4
 
 PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
 

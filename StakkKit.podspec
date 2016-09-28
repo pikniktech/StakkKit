@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.3'
 
   s.source_files = 'StakkKit/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'StakkKit' => ['StakkKit/Assets/*.png']
   # }
@@ -42,4 +42,5 @@ TODO: Add long description of the pod here.
   s.dependency 'AFNetworking', '~> 3.1.0'
   s.dependency 'JSONModel', '~> 1.5.1'
   s.dependency 'CocoaLumberjack', '~> 3.0.0'
+  s.dependency 'MagicalRecord', '~> 2.3.2'
 end

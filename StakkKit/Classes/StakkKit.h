@@ -8,3 +8,5 @@
 
 #import "SFNetworkManager.h"
 #import "SFLoggingManager.h"
+#import "SFDatabaseManager.h"
+
