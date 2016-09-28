@@ -17,18 +17,34 @@
 
 @implementation SFViewController
 
-- (void)viewDidLoad
-{
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    SFNetworkManager *manager = [[SFNetworkManager alloc] init];
+    [self makeSampleRequest];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Helpers
+
+- (void)makeSampleRequest {
+    
+    SFNetworkManager *manager = [SFNetworkManager sharedInstance];
+    
+    [manager requestWithURL:@"https://mxlbw0t3ia.execute-api.ap-northeast-1.amazonaws.com/prod/startup"
+                     method:SFRequestMethodGET
+                 parameters:nil
+          cachePeriodInSecs:0
+                    success:^(NSDictionary *responseDict) {
+                        
+                        NSLog(@"Request succeed");
+                    }
+                    failure:^(NSError *error) {
+                        
+                        NSLog(@"Request failed");
+                    }];
 }
 
 @end
