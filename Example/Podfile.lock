@@ -14,10 +14,19 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CocoaLumberjack (3.0.0):
+    - CocoaLumberjack/Default (= 3.0.0)
+    - CocoaLumberjack/Extensions (= 3.0.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
   - JSONModel (1.5.1)
   - Kiwi (2.4.0)
-  - StakkKit (0.1.0):
+  - StakkKit (0.1.1):
     - AFNetworking (~> 3.1.0)
+    - CocoaLumberjack (~> 3.0.0)
     - JSONModel (~> 1.5.1)
 
 DEPENDENCIES:
@@ -30,9 +39,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  StakkKit: ae144c9ebc1ad0f17f947eefd90cbdc6cb1a6db3
+  StakkKit: ea863c1cdc4d61dfe5d50845b7e246e9b891712d
 
 PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
 

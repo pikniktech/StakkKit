@@ -11,6 +11,9 @@
 // Frameworks
 #import "AFNetworking.h"
 
+//Models
+#import "SFLog.h"
+
 //// Controllers
 //#import "YCDatabaseManager.h"
 
@@ -178,7 +181,7 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
     [logString appendFormat:@"Parameters: %@\n", parameters];
     [logString appendString:@"---Request started---\n"];
     
-//    SFLogAPI(@"%@", logString);
+    SFLogAPI(@"%@", logString);
 }
 
 
@@ -209,7 +212,7 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
     
     [logString appendString:@"---Request ended---"];
     
-//    SFLogAPI(@"%@", logString);
+    SFLogAPI(@"%@", logString);
 }
 
 + (NSString *)stringForMethod:(SFRequestMethod)method {

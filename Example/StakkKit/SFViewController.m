@@ -24,10 +24,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self setupLogging];
     [self makeSampleRequest];
 }
 
 #pragma mark - Helpers
+
+- (void)setupLogging {
+    
+    [SFLoggingManager setupWithLevel:SFLogLevelAll];
+    SFLogError(@"Error Log");
+    SFLogDB(@"DB Log");
+    SFLogAPI(@"API Log");
+    SFLogDebug(@"Debug Log");
+}
 
 - (void)makeSampleRequest {
     
@@ -39,11 +49,11 @@
           cachePeriodInSecs:0
                     success:^(NSDictionary *responseDict) {
                         
-                        NSLog(@"Request succeed");
+                        SFLogDebug(@"Request succeed");
                     }
                     failure:^(NSError *error) {
                         
-                        NSLog(@"Request failed");
+                        SFLogError(@"Request failed");
                     }];
 }
 

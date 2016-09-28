@@ -41,4 +41,5 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'AFNetworking', '~> 3.1.0'
   s.dependency 'JSONModel', '~> 1.5.1'
+  s.dependency 'CocoaLumberjack', '~> 3.0.0'
 end
