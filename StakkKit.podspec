@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StakkKit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'This a helper kit for Stakk developers to develop iOS applications.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.3'
 
-  s.source_files = 'StakkKit/Classes/**/*'
+  s.source_files = 'StakkKit/Classes/**/*{m,h,xcdatamodeld}'
   s.resources =     'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
   s.preserve_paths = 'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
 
