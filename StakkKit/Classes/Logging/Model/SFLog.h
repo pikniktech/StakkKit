@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger, SFLogLevel){
 #define SFLOG_ASYNC_DEBUG    (YES && SFLOG_ASYNC_ENABLED)
 
 #define SFLogError(frmt, ...)   LOG_MAYBE(SFLOG_ASYNC_ERROR,   SFLOG_LEVEL_ALL, SFLOG_FLAG_ERROR,   0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat("[ERROR]", frmt), ##__VA_ARGS__)
-#define SFLogDB(frmt, ...)      LOG_MAYBE(SFLOG_ASYNC_DB,      SFLOG_LEVEL_ALL, SFLOG_FLAG_DB,      0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat("[Database]", frmt), ##__VA_ARGS__)
+#define SFLogDB(frmt, ...)      LOG_MAYBE(SFLOG_ASYNC_DB,      SFLOG_LEVEL_ALL, SFLOG_FLAG_DB,      0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat("[DATABASE]", frmt), ##__VA_ARGS__)
 #define SFLogAPI(frmt, ...)     LOG_MAYBE(SFLOG_ASYNC_API,     SFLOG_LEVEL_ALL, SFLOG_FLAG_API,     0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat("[API]", frmt), ##__VA_ARGS__)
 #define SFLogDebug(frmt, ...)   LOG_MAYBE(SFLOG_ASYNC_DEBUG,   SFLOG_LEVEL_ALL, SFLOG_FLAG_DEBUG,   0, nil, __PRETTY_FUNCTION__, CustomLoggingFormat("[DEBUG]", frmt), ##__VA_ARGS__)
 

@@ -15,7 +15,9 @@
 @property (nonatomic, strong) UIView *baseView;
 
 - (void)setup; // Override hook
+
 - (void)setupConstraints; // Override hook
+
 + (NSString *)reuseIdentifier;
 
 @end

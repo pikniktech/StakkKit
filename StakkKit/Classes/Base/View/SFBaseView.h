@@ -11,6 +11,7 @@
 @interface SFBaseView : UIView
 
 - (void)setup; // Override hook
+
 - (void)setupConstraints; // Override hook
 
 @end

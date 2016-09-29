@@ -11,7 +11,9 @@
 @interface SFBaseCollectionViewCell : UICollectionViewCell
 
 - (void)setup; // Override hook
+
 - (void)setupConstraints; // Override hook
+
 + (NSString *)reuseIdentifier;
 
 @end
