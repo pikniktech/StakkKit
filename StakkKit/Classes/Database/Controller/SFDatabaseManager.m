@@ -9,6 +9,7 @@
 #import "SFDatabaseManager.h"
 
 // Frameworks
+#define MR_LOGGING_DISABLED 1   // Switch off MagicalRecord's logging
 #import <MagicalRecord/MagicalRecord.h>
 #import <MagicalRecord/NSManagedObjectContext+MagicalSaves.h>
 
@@ -18,6 +19,9 @@
 // Categories
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
+
+// Constants
+static NSString * const kStoreName = @"StakkKit";
 
 @implementation SFDatabaseManager
 
@@ -41,7 +45,7 @@
 
 - (void)setup {
     
-    [MagicalRecord setupCoreDataStack];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:kStoreName];
     
     SFLogDB(@"Database setup completed");
 }

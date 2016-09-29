@@ -20,6 +20,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		65594A321D9D011E00B776DF /* StakkKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65594A301D9D011E00B776DF /* StakkKit.xcdatamodeld */; };
 		6597903A1D9B651D0068DC77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659790391D9B651D0068DC77 /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		87AC1DAF251A77BAAA0C36F5 /* Pods_StakkKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92F5D1E94EA444EF952AA6 /* Pods_StakkKit_Tests.framework */; };
@@ -58,6 +59,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		65594A311D9D011E00B776DF /* StakkKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StakkKit.xcdatamodel; sourceTree = "<group>"; };
 		659790391D9B651D0068DC77 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		769374B94C4A4765554E97AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7E92F5D1E94EA444EF952AA6 /* Pods_StakkKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StakkKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		6003F593195388D20070C39A /* Example for StakkKit */ = {
 			isa = PBXGroup;
 			children = (
+				65594A301D9D011E00B776DF /* StakkKit.xcdatamodeld */,
 				6003F59C195388D20070C39A /* SFAppDelegate.h */,
 				6003F59D195388D20070C39A /* SFAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -400,6 +403,7 @@
 				6003F59E195388D20070C39A /* SFAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SFViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				65594A321D9D011E00B776DF /* StakkKit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +637,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65594A301D9D011E00B776DF /* StakkKit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65594A311D9D011E00B776DF /* StakkKit.xcdatamodel */,
+			);
+			currentVersion = 65594A311D9D011E00B776DF /* StakkKit.xcdatamodel */;
+			path = StakkKit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6003F582195388D10070C39A /* Project object */;
 }

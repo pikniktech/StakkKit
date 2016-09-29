@@ -23,22 +23,15 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/pikniktech/sf-stakkkit-ios'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Derek' => 'derek@stakkfactory.com' }
   s.source           = { :git => 'https://github.com/pikniktech/sf-stakkkit-ios.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.3'
 
   s.source_files = 'StakkKit/Classes/**/*{h,m}'
+  s.resources = 'StakkKit/*{xcdatamodeld}'
 
-  s.resource_bundles = {
-    'Resources' => ['StakkKit/Resources/*.{xcdatamodeld,xcdatamodel}']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'AFNetworking', '~> 3.1.0'
   s.dependency 'JSONModel', '~> 1.5.1'
   s.dependency 'CocoaLumberjack', '~> 3.0.0'
