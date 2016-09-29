@@ -178,7 +178,7 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
     [logString appendFormat:@"URL: %@\n", url];
     [logString appendFormat:@"Method: %@\n", [SFNetworkManager stringForMethod:method]];
     [logString appendFormat:@"Parameters: %@\n", parameters];
-    [logString appendString:@"---Request started---\n"];
+    [logString appendString:@"---Request started---"];
     
     SFLogAPI(@"%@", logString);
 }

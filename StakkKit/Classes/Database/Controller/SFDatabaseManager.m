@@ -9,7 +9,6 @@
 #import "SFDatabaseManager.h"
 
 // Frameworks
-#define MR_LOGGING_DISABLED 1   // Switch off MagicalRecord's logging
 #import <MagicalRecord/MagicalRecord.h>
 #import <MagicalRecord/NSManagedObjectContext+MagicalSaves.h>
 
@@ -45,6 +44,7 @@ static NSString * const kStoreName = @"StakkKit";
 
 - (void)setup {
     
+    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
     [MagicalRecord setupCoreDataStackWithStoreNamed:kStoreName];
     
     SFLogDB(@"Database setup completed");

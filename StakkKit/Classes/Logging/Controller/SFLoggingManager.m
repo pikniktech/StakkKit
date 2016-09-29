@@ -12,14 +12,27 @@
 
 + (void)setupWithLevel:(SFLogLevel)level {
     
-    setenv("XcodeColors", "YES", 0);
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:(DDLogLevel)level];
     
-    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:level];
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:SFLogFlagError];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor brownColor] backgroundColor:nil forFlag:SFLogFlagDatabase];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:SFLogFlagAPI];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor darkGrayColor] backgroundColor:nil forFlag:SFLogFlagDebug];
+//    setenv("XcodeColors", "YES", 0);
+//
+//    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+//    
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor]
+//                                     backgroundColor:nil
+//                                             forFlag:(DDLogFlag)SFLogFlagError];
+//    
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor brownColor]
+//                                     backgroundColor:nil
+//                                             forFlag:(DDLogFlag)SFLogFlagDatabase];
+//    
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor]
+//                                     backgroundColor:nil
+//                                             forFlag:(DDLogFlag)SFLogFlagAPI];
+//    
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor darkGrayColor]
+//                                     backgroundColor:nil
+//                                             forFlag:(DDLogFlag)SFLogFlagDebug];
 }
 
 @end
