@@ -31,13 +31,11 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.3'
 
-  s.source_files = 'StakkKit/Classes/**/*{m,h,xcdatamodeld}'
-  s.resources =     'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
-  s.preserve_paths = 'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
+  s.source_files = 'StakkKit/Classes/**/*{h,m}'
 
-  # s.resource_bundles = {
-  #   'StakkKit' => ['StakkKit/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'StakkKit' => ['StakkKit/Assets/*']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
