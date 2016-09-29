@@ -32,6 +32,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.3'
 
   s.source_files = 'StakkKit/Classes/**/*'
+  s.resources =     'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
+  s.preserve_paths = 'StakkKit/Classes/Database/Model/StakkKit.xcdatamodeld'
 
   # s.resource_bundles = {
   #   'StakkKit' => ['StakkKit/Assets/*.png']
