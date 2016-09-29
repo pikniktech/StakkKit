@@ -27,11 +27,13 @@ PODS:
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
-  - StakkKit (0.1.8):
+  - PureLayout (3.0.2)
+  - StakkKit (0.1.9):
     - AFNetworking (~> 3.1.0)
     - CocoaLumberjack (~> 3.0.0)
     - JSONModel (~> 1.5.1)
     - MagicalRecord (~> 2.3.2)
+    - PureLayout
 
 DEPENDENCIES:
   - Kiwi
@@ -47,7 +49,8 @@ SPEC CHECKSUMS:
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
-  StakkKit: b96e407b7266700306605821b2b3ab37a719f3c7
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  StakkKit: b329ce60599863e293b5c65be637b9e330053594
 
 PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
 

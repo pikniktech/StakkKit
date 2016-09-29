@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StakkKit'
-  s.version          = '0.1.9'
+  s.version          = '0.9.0'
   s.summary          = 'This a helper kit for Stakk developers to develop iOS applications.'
 
 # This description is used to generate tags and improve search results.
@@ -36,4 +36,5 @@ TODO: Add long description of the pod here.
   s.dependency 'JSONModel', '~> 1.5.1'
   s.dependency 'CocoaLumberjack', '~> 3.0.0'
   s.dependency 'MagicalRecord', '~> 2.3.2'
+  s.dependency 'PureLayout', '~> 3.0.2'
 end
