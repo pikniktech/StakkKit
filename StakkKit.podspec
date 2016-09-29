@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StakkKit'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'This a helper kit for Stakk developers to develop iOS applications.'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'StakkKit/Classes/**/*{h,m}'
 
   s.resource_bundles = {
-    'StakkKit' => ['StakkKit/Assets/*']
+    'Resources' => ['Resources/*.xcdatamodeld']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
