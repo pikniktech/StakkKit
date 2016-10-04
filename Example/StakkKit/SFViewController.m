@@ -52,7 +52,8 @@
     [manager requestWithURL:@"https://mxlbw0t3ia.execute-api.ap-northeast-1.amazonaws.com/prod/startup"
                      method:SFRequestMethodGET
                  parameters:nil
-          cachePeriodInSecs:60
+                ignoreCache:NO
+          cachePeriodInSecs:6000
                     success:^(NSDictionary *responseDict) {
                         
                         SFLogDebug(@"Request succeed");

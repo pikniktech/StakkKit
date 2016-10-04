@@ -24,6 +24,7 @@ typedef void (^SFRequestFailureBlock)(NSError *error);
 - (NSURLSessionDataTask *)requestWithURL:(NSString *)url
                                   method:(SFRequestMethod)method
                               parameters:(NSDictionary *)parameters
+                             ignoreCache:(BOOL)ignoreCache
                        cachePeriodInSecs:(CGFloat)cachePeriodInSecs
                                  success:(SFRequestSuccessBlock)success
                                  failure:(SFRequestFailureBlock)failure;
