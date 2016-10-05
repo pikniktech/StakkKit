@@ -19,6 +19,9 @@
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
 
+
+#import "SFAuthManager.h"
+
 // Constants
 static NSString * const kStoreName = @"StakkKit";
 
@@ -28,6 +31,7 @@ static NSString * const kStoreName = @"StakkKit";
 
 + (instancetype)sharedInstance
 {
+    
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     

@@ -8,12 +8,17 @@
 
 #import "SFAppDelegate.h"
 
+// StakkKit
+#import "StakkKit.h"
+
 @implementation SFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     return YES;
+    //return [[FBSDKApplicationDelegate sharedInstance] application:application
+             //                       didFinishLaunchingWithOptions:launchOptions];;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

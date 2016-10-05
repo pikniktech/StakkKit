@@ -11,6 +11,7 @@
 // Models
 #import "SFDBAPICache.h"
 
+
 typedef void (^SFDatabaseCompletionBlock)(BOOL success);
 
 @interface SFDatabaseManager : NSObject

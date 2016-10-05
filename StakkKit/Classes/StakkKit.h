@@ -22,6 +22,9 @@
 // Database
 #import "SFDatabaseManager.h"
 
+// Auth
+// #import "SFAuthManager.h"
+
 // Base
 #import "SFBaseModel.h"
 #import "SFBaseView.h"

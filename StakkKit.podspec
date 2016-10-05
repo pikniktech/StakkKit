@@ -38,4 +38,16 @@ TODO: Add long description of the pod here.
   s.dependency 'MagicalRecord', '~> 2.3.2'
   s.dependency 'PureLayout', '~> 3.0.2'
   s.dependency 'SDWebImage', '~>3.8.2'
+
+# Auth
+  s.dependency 'FBSDKCoreKit'
+  s.dependency 'FBSDKLoginKit'
+  s.dependency 'FBSDKShareKit'
+  s.dependency 'Google/SignIn'
+  s.dependency 'Firebase'
+  s.dependency 'Firebase/Auth'
+  s.dependency 'Firebase/Messaging'
+  s.dependency 'Firebase/Database'
+  s.dependency 'Firebase/Storage'
+  s.dependency 'Firebase/Core'
 end
