@@ -6,7 +6,8 @@
 //
 //
 
-#import "SFAuthManager.h"
+#import "SFAuthManager.h"'
+#import "SFMacro.h"
 
 @implementation SFAuthManager
 
@@ -20,18 +21,12 @@
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[[self class] alloc] init];
-        [sharedInstance setup];
     });
     
     return sharedInstance;
 }
 
-#pragma mark - Setup
-
-- (void)setup {
-    
-}
-
+#pragma mark - Public
 
 -(void)loginAnonymous {
     
@@ -67,93 +62,109 @@
     
 }
 
--(void) loginGoogle{
+-(void) loginGoogle {
+    
+    [GIDSignIn sharedInstance].uiDelegate = self;
     [GIDSignIn sharedInstance].delegate = self;
     [[GIDSignIn sharedInstance] signIn];
 }
--(void) authFacebook:(UIViewController*)fromViewController{
+
+-(void) loginFacebook {
+    
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
-            NSLog(@"Process error");
+            NSLog(@"Facebook Process error");
         } else if (result.isCancelled) {
             if (result.token) {
-                NSLog(@"Logged in");
-                //[self signInFacebookWithCredential];
+                NSLog(@"Facebook Logged in");
+                [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFacebookCompletedNotification object:nil userInfo:nil];
             }else{
-                NSLog(@"Cancelled");
+                NSLog(@"Facebook Cancelled");
             }
         } else {
-            NSLog(@"Logged in");
-            //[self signInFacebookWithCredential];
+            NSLog(@"Facebook Logged in");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFacebookCompletedNotification object:nil userInfo:nil];
         }
         
     }];
-    //    [login setLoginBehavior:FBSDKLoginBehaviorNative];
-    //    [login
-    //     logInWithReadPermissions: @[@"public_profile",@"user_photos",@"user_location"]
-    //     fromViewController:fromViewController
-    //     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-    //         if (error) {
-    //             NSLog(@"Process error");
-    //         } else if (result.isCancelled) {
-    //             if (result.token) {
-    //                 NSLog(@"Logged in");
-    //                 [self signInFacebookWithCredential];
-    //             }else{
-    //                 NSLog(@"Cancelled");
-    //             }
-    //
-    //         } else {
-    //             NSLog(@"Logged in");
-    //             [self signInFacebookWithCredential];
-    //         }
-    //
-    //     }];
-    
 }
 
--(void) signInFacebookWithCredential{
-  /*  FIRAuthCredential *credential = [FIRFacebookAuthProvider
-                                     credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
-                                     .tokenString];
-    [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-        if (!error) {
-            NSLog(@"user login");
-        }else{
-            NSLog(@"user not login error:%@",error);
-        }
-        [authPresenter authFacebookWithCompletion:user withError:error];
-        
-    }];*/
+- (BOOL)isLoggedIn {
     
+    return ([self isLoggedInAnonymous] || [self isLoggedInFacebook] || [self isLoggedInFacebook]);
 }
 
--(void) signOut{
+- (BOOL)isLoggedInAnonymous{
+    
+    FIRUser *user = [FIRAuth auth].currentUser;
+    if (user) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isLoggedInFacebook {
+    
+    return [FBSDKAccessToken currentAccessToken] != nil;
+}
+
+- (BOOL)isLoggedInGoogle {
+    
+    return [[GIDSignIn sharedInstance] currentUser] != nil;
+}
+
+- (void)logout {
+    
     NSError *error;
-    FIRUser *currentUser = [FIRAuth auth].currentUser;
-    NSString *providerID =  currentUser.providerData.firstObject.providerID;
-    [[FIRAuth auth] signOut:&error];
-    if (!error) {
-        if ([providerID isEqualToString:@"google.com"]) {
-            [[GIDSignIn sharedInstance] signOut];
-        }else if ([providerID isEqualToString:@"facebook.com"]){
-            FBSDKLoginManager *fbLoginManager = [[FBSDKLoginManager alloc] init];
-            [fbLoginManager logOut];
-        }
-        NSLog(@"LogOut Succeed");
-    }else{
-        NSLog(@"LogOut Fail");
+    if ([self isLoggedInFacebook]) {
+        
+        SFLogDebug(@"Facebook is logged in");
+        FBSDKLoginManager *fbLoginManager = [[FBSDKLoginManager alloc] init];
+        [fbLoginManager logOut];
+    } else if ([self isLoggedInGoogle]){
+        
+        SFLogDebug(@"Google is logged in");
+        [[GIDSignIn sharedInstance] signOut];
+    } else if ([self isLoggedInAnonymous]) {
+        
+        SFLogDebug(@"Anonymous is logged in");
+        [[FIRAuth auth] signOut:&error];
     }
+    
     if (!error) {
-        //[[CacheDataManager sharedManager] removeCacheDataFromKey:IS_LOGIN];
+        // remove cached key from db
+        
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutNotification object:nil userInfo:error?@{@"error":error}:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutNotification object:nil userInfo:error? @{@"error":error}: nil];
+    
+    
+//    NSError *error;
+//    FIRUser *currentUser = [FIRAuth auth].currentUser;
+//    NSString *providerID =  currentUser.providerData.firstObject.providerID;
+//    [[FIRAuth auth] signOut:&error];
+//    if (!error) {
+//        if ([providerID isEqualToString:@"google.com"]) {
+//            [[GIDSignIn sharedInstance] signOut];
+//        }else if ([providerID isEqualToString:@"facebook.com"]){
+//            FBSDKLoginManager *fbLoginManager = [[FBSDKLoginManager alloc] init];
+//            [fbLoginManager logOut];
+//        }
+//        NSLog(@"LogOut Succeed");
+//    }else{
+//        NSLog(@"LogOut Fail");
+//    }
+    
+//    if (!error) {
+//        [[CacheDataManager sharedManager] removeCacheDataFromKey:IS_LOGIN];
+//    }
     //[authPresenter signOut:error];
 }
 
 -(void) editUserDisplayName:(NSString*)name{
+    
     FIRUser *user = [FIRAuth auth].currentUser;
     NSLog(@"editUserDisplayName uid:%@",user.uid);
     FIRUserProfileChangeRequest *changeRequest = [user profileChangeRequest];
@@ -162,7 +173,9 @@
         //[authPresenter editUserDisplayNameWithError:error];
     }];
 }
+
 -(void) editUserDisplayName:(NSString*)name pic:(NSURL*)pic{
+    
     FIRUser *user = [FIRAuth auth].currentUser;
     FIRUserProfileChangeRequest *changeRequest = [user profileChangeRequest];
     if (name) {
@@ -175,32 +188,51 @@
 }
 
 #pragma mark - GIDSignInDelegate
-- (void)signIn:(GIDSignIn *)signIn
-didSignInForUser:(GIDGoogleUser *)user
-     withError:(NSError *)error {
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    
     if (error == nil) {
-        //        _nameTF.text = user.profile.name;
         NSLog(@"signIn userId%@:",user.userID);
-        GIDAuthentication *authentication = user.authentication;
-        FIRAuthCredential *credential =
-        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
-                                         accessToken:authentication.accessToken];
-        
-        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-            if (!error) {
-                NSLog(@"user login uid:%@",user.uid);
-            }else{
-                NSLog(@"user not login");
-            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginGoogleCompletedNotification object:nil userInfo:error?@{@"error":error}:nil];
-            //[authPresenter authGoogleWithCompletion:user withError:error];
-        }];
+//        GIDAuthentication *authentication = user.authentication;
+//        FIRAuthCredential *credential =
+//        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+//                                         accessToken:authentication.accessToken];
+//        
+//        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+//            if (!error) {
+//                NSLog(@"user login uid:%@",user.uid);
+//            }else{
+//                NSLog(@"user not login");
+//            }
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginGoogleCompletedNotification object:nil userInfo:error?@{@"error":error}:nil];
+//            //[authPresenter authGoogleWithCompletion:user withError:error];
+//        }];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginGoogleCompletedNotification object:nil userInfo:nil];
         
     } else {
         NSLog(@"%@", error.localizedDescription);
          [[NSNotificationCenter defaultCenter] postNotificationName:kLoginGoogleCompletedNotification object:nil userInfo:@{@"error":error}];
         //[authPresenter authGoogleWithCompletion:nil withError:error];
     }
+}
+
+#pragma mark - GIDSignInUIDelegate
+
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    
+    NSLog(@"signInWillDispatch");
+}
+
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController {
+    
+    NSLog(@"signIn presentViewController");
+    [RootViewController presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController {
+    
+    NSLog(@"signIn dismissViewController");
+    [RootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
