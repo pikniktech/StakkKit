@@ -17,6 +17,8 @@ typedef void (^SFDatabaseCompletionBlock)(BOOL success);
 
 + (instancetype)sharedInstance;
 
+- (void)setupWithStoreName:(NSString *)storeName;
+
 - (void)reset;
 
 - (void)createOrUpdateAPICacheWithURL:(NSString *)url

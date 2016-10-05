@@ -19,8 +19,11 @@
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
 
-// Constants
-static NSString * const kStoreName = @"StakkKit";
+@interface SFDatabaseManager ()
+
+@property (nonatomic, strong) NSString *storeName;
+
+@end
 
 @implementation SFDatabaseManager
 
@@ -34,7 +37,6 @@ static NSString * const kStoreName = @"StakkKit";
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[[self class] alloc] init];
-        [sharedInstance setup];
     });
     
     return sharedInstance;
@@ -42,10 +44,16 @@ static NSString * const kStoreName = @"StakkKit";
 
 #pragma mark - Setup
 
+- (void)setupWithStoreName:(NSString *)storeName {
+    
+    self.storeName = storeName;
+    [self setup];
+}
+
 - (void)setup {
     
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
-    [MagicalRecord setupCoreDataStackWithStoreNamed:kStoreName];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:self.storeName];
     
     SFLogDB(@"Database setup completed");
 }
@@ -56,11 +64,11 @@ static NSString * const kStoreName = @"StakkKit";
 {
     [MagicalRecord cleanUp];
     
-    NSString *dbStore = [MagicalRecord defaultStoreName];
+    NSString *dbStore = [NSString stringWithFormat:@"%@.sqlite", self.storeName];
     
     NSURL *storeURL = [NSPersistentStore MR_urlForStoreName:dbStore];
-    NSURL *walURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-wal"];
-    NSURL *shmURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-shm"];
+    NSURL *walURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"-wal"];
+    NSURL *shmURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"-shm"];
     
     NSError *error = nil;
     BOOL result = YES;

@@ -42,7 +42,8 @@
 
 - (void)setupDatabaseManager {
     
-    [SFDatabaseManager sharedInstance];
+    SFDatabaseManager *manager = [SFDatabaseManager sharedInstance];
+    [manager setupWithStoreName:@"StakkKitDatabase"];
 }
 
 - (void)makeSampleRequest {
