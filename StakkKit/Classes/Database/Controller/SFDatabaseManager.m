@@ -53,22 +53,18 @@
 - (void)setup {
     
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
-    [MagicalRecord setupCoreDataStackWithStoreNamed:self.storeName];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:[self store]];
     
     SFLogDB(@"Database setup completed");
 }
 
 #pragma mark - Public
 
-- (void)reset
-{
-    [MagicalRecord cleanUp];
+- (void)reset {
     
-    NSString *dbStore = [NSString stringWithFormat:@"%@.sqlite", self.storeName];
-    
-    NSURL *storeURL = [NSPersistentStore MR_urlForStoreName:dbStore];
-    NSURL *walURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"-wal"];
-    NSURL *shmURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"-shm"];
+    NSURL *storeURL = [NSPersistentStore MR_urlForStoreName:[self store]];
+    NSURL *walURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-wal"];
+    NSURL *shmURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-shm"];
     
     NSError *error = nil;
     BOOL result = YES;
@@ -83,11 +79,12 @@
     
     if (result) {
         
+        [MagicalRecord cleanUp];
         [self setup];
         
     } else {
         
-        SFLogDB(@"An error has occurred while deleting %@ error %@", dbStore, error);
+        SFLogDB(@"An error has occurred while deleting %@ error %@", self.store, error);
     }
 }
 
@@ -211,6 +208,11 @@
     }
     
     SFLogDB(@"%@", log);
+}
+
+- (NSString *)store {
+    
+    return [NSString stringWithFormat:@"%@.sqlite", self.storeName];
 }
 
 @end
