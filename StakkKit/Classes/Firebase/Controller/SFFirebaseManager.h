@@ -6,28 +6,10 @@
 //
 //
 
-// Frameworks
 #import <Foundation/Foundation.h>
-#import <FirebaseAuth/FIRUser.h>
 
-// Protocols
-#import "SFBaseAuthProtocol.h"
-
-// Notifications
-static NSString* const kLoginFirebaseCompletedNotification = @"kLoginFirebaseCompletedNotification";
-static NSString* const kLogoutFirebaseCompletedNotification = @"kLogoutFirebaseCompletedNotification";
-static NSString* const kUpdateProfileCompletedNotification = @"kUpdateProfileCompletedNotification";
-
-@interface SFFirebaseManager : NSObject <SFBaseAuthProtocol>
+@interface SFFirebaseManager : NSObject
 
 + (instancetype)sharedInstance;
-
-- (void)login;
-- (void)logout;
-- (BOOL)isLoggedIn;
-
-- (void)updateDisplayName:(NSString*)name;
-- (void)updateDisplayName:(NSString*)name imageURL:(NSURL*)imageURL;
-- (FIRUser*)getCurrentUser;
 
 @end

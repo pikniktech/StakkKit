@@ -7,5 +7,3 @@
 //
 
 #define RootViewController [[[[UIApplication sharedApplication] delegate] window] rootViewController]
-
-#define PostNotification(NAME, USERINFO) [[NSNotificationCenter defaultCenter] postNotificationName:NAME object:nil userInfo:USERINFO];
