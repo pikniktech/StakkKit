@@ -10,9 +10,4 @@
 
 @interface SFViewController : UIViewController
 
-- (IBAction)loginAnonymous:(id)sender;
-- (IBAction)loginFacebook:(id)sender;
-- (IBAction)loginGoogle:(id)sender;
-- (IBAction)logout:(id)sender;
-
 @end

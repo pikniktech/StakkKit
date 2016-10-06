@@ -19,9 +19,6 @@
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
 
-
-#import "SFAuthManager.h"
-
 // Constants
 static NSString * const kStoreName = @"StakkKit";
 
