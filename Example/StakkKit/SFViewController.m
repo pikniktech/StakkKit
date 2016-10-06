@@ -24,22 +24,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-//    [self setupLogging];
-//    [self setupDatabaseManager];
-//    [self makeSampleRequest];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFacebookComplete:) name:@"kLoginFacebookCompletedNotification" object:nil];
-    
+    [self setupLogging];
+    [self setupDatabaseManager];
+    [self makeSampleRequest];
 }
 
 #pragma mark - Helpers
 
 - (void)setupLogging {
     
-    [SFLoggingManager setupWithLevel:SFLogLevelDebug];
-//    SFLogError(@"Error Log");
-//    SFLogDB(@"DB Log");
-//    SFLogAPI(@"API Log");
-//    SFLogDebug(@"Debug Log");
+    [SFLoggingManager setupWithLevel:SFLogLevelAll];
+    SFLogError(@"Error Log");
+    SFLogDB(@"DB Log");
+    SFLogAPI(@"API Log");
+    SFLogDebug(@"Debug Log");
 }
 
 - (void)setupDatabaseManager {
@@ -65,38 +63,6 @@
                         
                         SFLogError(@"Request failed");
                     }];
-}
-
-#pragma mark - Buttons 
-
-- (void)loginAnonymous:(id)sender {
-    
-    [[SFAuthManager sharedInstance] loginAnonymous];
-}
-
-- (void)loginFacebook:(id)sender {
-    
-    [[SFAuthManager sharedInstance] loginFacebook];
-}
-
-- (void)loginGoogle:(id)sender {
-    
-    [[SFAuthManager sharedInstance] loginGoogle];
-}
-
-- (void)logout:(id)sender {
-    
-    [[SFAuthManager sharedInstance] logout];
-}
-
-#pragma mark - Notification Callbacks
-
-- (void)loginFacebookComplete:(NSNotification*)notification {
-    if (notification) {
-        if ([notification userInfo] && [[notification userInfo] objectForKey:@"error"]) {
-            NSLog(@"error :0) ");
-        }
-    }
 }
 
 @end
