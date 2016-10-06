@@ -13,11 +13,11 @@
 #import "SFBaseAuthProtocol.h"
 
 // Notifications
-static NSString* const kLoginGoogleCompletedNotification = @"kLoginGoogleCompletedNotification";
-static NSString* const kLogoutGoogleCompletedNotification = @"kLogoutGoogleCompletedNotification";
+static NSString * const kLoginGoogleCompletedNotification = @"kLoginGoogleCompletedNotification";
+static NSString * const kLogoutGoogleCompletedNotification = @"kLogoutGoogleCompletedNotification";
 
 // Constants
-static NSString* const kGoogleUserKey = @"kGoogleUserKey";
+static NSString * const kGoogleUserKey = @"kGoogleUserKey";
 
 @interface SFGoogleManager : NSObject <SFBaseAuthProtocol>
 

@@ -14,9 +14,9 @@
 #import "SFBaseAuthProtocol.h"
 
 // Notifications
-static NSString* const kLoginFirebaseCompletedNotification = @"kLoginFirebaseCompletedNotification";
-static NSString* const kLogoutFirebaseCompletedNotification = @"kLogoutFirebaseCompletedNotification";
-static NSString* const kUpdateProfileCompletedNotification = @"kUpdateProfileCompletedNotification";
+static NSString * const kLoginFirebaseCompletedNotification = @"kLoginFirebaseCompletedNotification";
+static NSString * const kLogoutFirebaseCompletedNotification = @"kLogoutFirebaseCompletedNotification";
+static NSString * const kUpdateProfileCompletedNotification = @"kUpdateProfileCompletedNotification";
 
 @interface SFFirebaseManager : NSObject <SFBaseAuthProtocol>
 
@@ -26,8 +26,8 @@ static NSString* const kUpdateProfileCompletedNotification = @"kUpdateProfileCom
 - (void)logout;
 - (BOOL)isLoggedIn;
 
-- (void)updateDisplayName:(NSString*)name;
-- (void)updateDisplayName:(NSString*)name imageURL:(NSURL*)imageURL;
-- (FIRUser*)getCurrentUser;
+- (void)updateDisplayName:(NSString *)name;
+- (void)updateDisplayName:(NSString *)name imageURL:(NSURL *)imageURL;
+- (FIRUser *)getCurrentUser;
 
 @end

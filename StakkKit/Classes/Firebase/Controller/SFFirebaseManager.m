@@ -21,24 +21,18 @@
 
 #pragma mark - Singleton
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
+    
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[[self class] alloc] init];
-        [sharedInstance setup];
+        
     });
     
     return sharedInstance;
-}
-
-#pragma mark - Setup
-
-- (void)setup {
-    
 }
 
 #pragma mark - SFBaseAuthProtocol
@@ -46,11 +40,14 @@
 - (void)login {
     
     if ([self isLoggedIn]) {
+        
         PostNotification(kLoginFirebaseCompletedNotification, nil)
         return;
+        
     }
     
     [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+        
         if (!error) {
             // TODO : sync User Profile
         }
@@ -62,44 +59,53 @@
 
 - (void)logout {
     
-    NSError* error;
+    NSError *error;
+    
     if ([self isLoggedIn]) {
+        
         [[FIRAuth auth] signOut:&error];
         PostNotification(kLogoutFirebaseCompletedNotification, error? @{@"error": error.localizedDescription}: nil)
+        
     }
 }
 
 - (BOOL)isLoggedIn {
     
     FIRUser *user = [FIRAuth auth].currentUser;
-    if (user) {
-        return YES;
-    }
-    return NO;
+    return user != nil;
 }
 
-- (void)updateDisplayName:(NSString*)name {
+- (void)updateDisplayName:(NSString *)name {
     
     [self updateDisplayName:name imageURL:nil];
 }
 
-- (void)updateDisplayName:(NSString*)name imageURL:(NSURL*)imageURL {
+- (void)updateDisplayName:(NSString *)name imageURL:(NSURL *)imageURL {
     
     FIRUser *user = [FIRAuth auth].currentUser;
     FIRUserProfileChangeRequest *changeRequest = [user profileChangeRequest];
     
     if (name) {
+        
         changeRequest.displayName = name;
+        
     }
+    
     if (imageURL) {
+        
         changeRequest.photoURL = imageURL;
+        
     }
+    
     [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
+        
         PostNotification(kUpdateProfileCompletedNotification, error? @{@"error": error.localizedDescription}: nil)
+        
     }];
 }
 
 - (FIRUser *)getCurrentUser {
+    
     return [[FIRAuth auth] currentUser];
 }
 
