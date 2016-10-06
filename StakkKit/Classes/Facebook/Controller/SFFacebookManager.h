@@ -10,8 +10,8 @@
 #import "SFBaseAuthProtocol.h"
 
 // Notifications
-static NSString * const kLoginFacebookCompletedNotification = @"kLoginFacebookCompletedNotification";
-static NSString * const kLogoutFacebookCompletedNotification = @"kLogoutFacebookCompletedNotification";
+static NSString* const kLoginFacebookCompletedNotification = @"kLoginFacebookCompletedNotification";
+static NSString* const kLogoutFacebookCompletedNotification = @"kLogoutFacebookCompletedNotification";
 
 @interface SFFacebookManager : NSObject <SFBaseAuthProtocol>
 
