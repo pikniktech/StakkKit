@@ -43,6 +43,7 @@
         
         PostNotification(kLoginFirebaseCompletedNotification, nil)
         return;
+        
     }
     
     [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
@@ -87,16 +88,19 @@
     if (name) {
         
         changeRequest.displayName = name;
+        
     }
     
     if (imageURL) {
         
         changeRequest.photoURL = imageURL;
+        
     }
     
     [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
         
         PostNotification(kUpdateProfileCompletedNotification, error? @{@"error": error.localizedDescription}: nil)
+        
     }];
 }
 

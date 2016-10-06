@@ -33,6 +33,7 @@
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[[self class] alloc] init];
+        
     });
     
     return sharedInstance;
@@ -46,6 +47,7 @@
         
         PostNotification(kLoginGoogleCompletedNotification, @{kGoogleUserKey: [[GIDSignIn sharedInstance] currentUser]});
         return;
+        
     }
     
     [GIDSignIn sharedInstance].uiDelegate = self;
@@ -62,7 +64,9 @@
         [[GIDSignIn sharedInstance] signOut];
         
         PostNotification(kLogoutGoogleCompletedNotification, nil)
+        
     }
+    
 }
 
 - (BOOL)isLoggedIn {
@@ -70,7 +74,7 @@
     return [[GIDSignIn sharedInstance] currentUser] != nil;
 }
 
-#pragma mark - <GIDSignInDelegate>
+#pragma mark - GIDSignInDelegate
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
 
@@ -79,23 +83,25 @@
     if (error) {
         
         [userInfo setValue:error.localizedDescription forKey:@"error"];
+        
     }
     
     PostNotification(kLoginGoogleCompletedNotification, userInfo)
 }
 
-#pragma mark - <GIDSignInUIDelegate>
+#pragma mark - GIDSignInUIDelegate
 
 - (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController {
     
-    SFLogDebug(@"signIn presentViewController");
+    NSLog(@"signIn presentViewController");
     [RootViewController presentViewController:viewController animated:YES completion:nil];
 }
 
 - (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController {
     
-    SFLogDebug(@"signIn dismissViewController");
+    NSLog(@"signIn dismissViewController");
     [RootViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

@@ -38,7 +38,7 @@
     return sharedInstance;
 }
 
-#pragma mark - <SFBaseAuthProtocol>
+#pragma mark - SFBaseAuthProtocol
 
 - (void)login {
     
@@ -75,19 +75,22 @@
             
             SFLogDebug(@"Facebook Logged in");
             PostNotification(kLoginFacebookCompletedNotification, nil)
+            
         }
+        
     }];
 }
 
 - (void)logout {
     
-    if ([self isLoggedIn]) {
+    if ([self isLoggedIn]){
         
         SFLogDebug(@"Facebook is logged in");
         FBSDKLoginManager *fbLoginManager = [[FBSDKLoginManager alloc] init];
         [fbLoginManager logOut];
         
         PostNotification(kLogoutFacebookCompletedNotification, nil)
+        
     }
 }
 
@@ -95,5 +98,6 @@
     
     return [FBSDKAccessToken currentAccessToken] != nil;
 }
+
 
 @end
