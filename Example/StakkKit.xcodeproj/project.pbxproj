@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		340E648BFCB594578E1AC6B3 /* libPods-StakkKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F5ADD305563B0E90B9239D /* libPods-StakkKit_Example.a */; };
-		4D05507AF7F082371E8AA3C9 /* libPods-StakkKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C213741364050D7ABCF45C09 /* libPods-StakkKit_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -25,6 +23,8 @@
 		65594A321D9D011E00B776DF /* StakkKitDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65594A301D9D011E00B776DF /* StakkKitDatabase.xcdatamodeld */; };
 		6597903A1D9B651D0068DC77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659790391D9B651D0068DC77 /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		87AC1DAF251A77BAAA0C36F5 /* Pods_StakkKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92F5D1E94EA444EF952AA6 /* Pods_StakkKit_Tests.framework */; };
+		C4E817717550D1ED44E2CA31 /* Pods_StakkKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108F440B75EDCA884ADCD4D /* Pods_StakkKit_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0E21A8B26571A37DC7333571 /* StakkKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StakkKit.podspec; path = ../StakkKit.podspec; sourceTree = "<group>"; };
+		1108F440B75EDCA884ADCD4D /* Pods_StakkKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StakkKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* StakkKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StakkKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,12 +62,11 @@
 		65594A311D9D011E00B776DF /* StakkKitDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StakkKitDatabase.xcdatamodel; sourceTree = "<group>"; };
 		659790391D9B651D0068DC77 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		769374B94C4A4765554E97AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7E92F5D1E94EA444EF952AA6 /* Pods_StakkKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StakkKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B04E0628D2C1046937BE165E /* Pods-StakkKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakkKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StakkKit_Tests/Pods-StakkKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B05DDA60D84851373A4387E8 /* Pods-StakkKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakkKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StakkKit_Example/Pods-StakkKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B1F5ADD305563B0E90B9239D /* libPods-StakkKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StakkKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFD671CECE1C07D0A02EBD /* Pods-StakkKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakkKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StakkKit_Tests/Pods-StakkKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C213741364050D7ABCF45C09 /* libPods-StakkKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StakkKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0010E1991C872A4602A9AE9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F80359533872BE931A7B45ED /* Pods-StakkKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakkKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-StakkKit_Example/Pods-StakkKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +79,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				340E648BFCB594578E1AC6B3 /* libPods-StakkKit_Example.a in Frameworks */,
+				C4E817717550D1ED44E2CA31 /* Pods_StakkKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				4D05507AF7F082371E8AA3C9 /* libPods-StakkKit_Tests.a in Frameworks */,
+				87AC1DAF251A77BAAA0C36F5 /* Pods_StakkKit_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +125,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				B1F5ADD305563B0E90B9239D /* libPods-StakkKit_Example.a */,
-				C213741364050D7ABCF45C09 /* libPods-StakkKit_Tests.a */,
+				1108F440B75EDCA884ADCD4D /* Pods_StakkKit_Example.framework */,
+				7E92F5D1E94EA444EF952AA6 /* Pods_StakkKit_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

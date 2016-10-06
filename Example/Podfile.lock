@@ -14,12 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
   - CocoaLumberjack (3.0.0):
     - CocoaLumberjack/Default (= 3.0.0)
     - CocoaLumberjack/Extensions (= 3.0.0)
@@ -28,79 +22,6 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
-  - FBSDKCoreKit (4.16.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.16.0):
-    - FBSDKCoreKit
-  - FBSDKShareKit (4.16.0):
-    - FBSDKCoreKit
-  - Firebase (3.7.0):
-    - Firebase/Core (= 3.7.0)
-  - Firebase/Auth (3.7.0):
-    - Firebase/Core
-    - FirebaseAuth (= 3.0.5)
-  - Firebase/Core (3.7.0):
-    - FirebaseAnalytics (= 3.4.3)
-    - FirebaseCore (= 3.4.3)
-  - Firebase/Database (3.7.0):
-    - Firebase/Core
-    - FirebaseDatabase (= 3.0.3)
-  - Firebase/Messaging (3.7.0):
-    - Firebase/Core
-    - FirebaseMessaging (= 1.2.0)
-  - Firebase/Storage (3.7.0):
-    - Firebase/Core
-    - FirebaseStorage (= 1.0.3)
-  - FirebaseAnalytics (3.4.3):
-    - FirebaseCore (~> 3.4)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-    - GoogleUtilities (~> 1.3)
-  - FirebaseAuth (3.0.5):
-    - FirebaseAnalytics (~> 3.3)
-    - GoogleNetworkingUtilities (~> 1.2)
-    - GoogleUtilities (~> 1.2)
-  - FirebaseCore (3.4.3):
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleUtilities (~> 1.2)
-  - FirebaseDatabase (3.0.3):
-    - FirebaseAnalytics (~> 3.3)
-  - FirebaseInstanceID (1.0.8)
-  - FirebaseMessaging (1.2.0):
-    - FirebaseAnalytics (~> 3.3)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleIPhoneUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-  - FirebaseStorage (1.0.3):
-    - FirebaseAnalytics (~> 3.3)
-    - GoogleNetworkingUtilities (~> 1.2)
-  - Google/Core (3.0.3):
-    - FirebaseAnalytics (~> 3.2)
-  - Google/SignIn (3.0.3):
-    - Google/Core
-    - GoogleSignIn (~> 4.0)
-  - GoogleAppUtilities (1.1.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleAuthUtilities (2.0.2):
-    - GoogleNetworkingUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleInterchangeUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleIPhoneUtilities (1.2.1):
-    - GoogleSymbolUtilities (~> 1.0)
-    - GoogleUtilities (~> 1.0)
-  - GoogleNetworkingUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleSignIn (4.0.0):
-    - GoogleAppUtilities (~> 1.1)
-    - GoogleAuthUtilities (~> 2.0)
-    - GoogleNetworkingUtilities (~> 1.2)
-    - GoogleUtilities (~> 1.3)
-  - GoogleSymbolUtilities (1.1.2)
-  - GoogleUtilities (1.3.2):
-    - GoogleSymbolUtilities (~> 1.1)
   - JSONModel (1.5.1)
   - Kiwi (2.4.0)
   - MagicalRecord (2.3.2):
@@ -113,16 +34,6 @@ PODS:
   - StakkKit (0.9.4):
     - AFNetworking (~> 3.1.0)
     - CocoaLumberjack (~> 3.0.0)
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - FBSDKShareKit
-    - Firebase
-    - Firebase/Auth
-    - Firebase/Core
-    - Firebase/Database
-    - Firebase/Messaging
-    - Firebase/Storage
-    - Google/SignIn
     - JSONModel (~> 1.5.1)
     - MagicalRecord (~> 2.3.2)
     - PureLayout (~> 3.0.2)
@@ -138,35 +49,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
-  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
-  FBSDKLoginKit: 9a514a55a7d05190f64d4ef09502737588b5b561
-  FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
-  Firebase: 3875e140d77c7572c6d4852faf94144ffcdb0704
-  FirebaseAnalytics: 02d0aed8c6246a9c8683ac3e9825c67ceb657bde
-  FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
-  FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
-  FirebaseDatabase: 750a4a0fe18ef114318876fd654b2d9c671e0992
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  FirebaseMessaging: 789d23fd796594dfb55dcf36cd325541df887c22
-  FirebaseStorage: 3992817bf405f5c1a4f8349678d22724cd0ef509
-  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
-  GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
-  GoogleAuthUtilities: ccad2e0a9284699973ff57c0dd24c3893657fda4
-  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
-  GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
-  GoogleSignIn: 09036ed61f8e75f1424100d63f7719480b2428c3
-  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  StakkKit: 282beee8ff9fc390c96272da9ed5fa7f75632283
+  StakkKit: 0cc232ad8cd3e7ef2b48e4ebfe37c45ee9d8beba
 
-PODFILE CHECKSUM: 7a76d92aa187d956988255c69283b27cfb15c832
+PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
 
 COCOAPODS: 1.1.0.rc.2
