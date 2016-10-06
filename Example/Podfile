@@ -1,5 +1,3 @@
-use_frameworks!
-
 target 'StakkKit_Example' do
   pod 'StakkKit', :path => '../'
 
