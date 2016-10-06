@@ -57,6 +57,7 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
 - (NSURLSessionDataTask *)requestWithURL:(NSString *)url
                                   method:(SFRequestMethod)method
                               parameters:(NSDictionary *)parameters
+                             ignoreCache:(BOOL)ignoreCache
                        cachePeriodInSecs:(CGFloat)cachePeriodInSecs
                                  success:(SFRequestSuccessBlock)success
                                  failure:(SFRequestFailureBlock)failure {
@@ -117,12 +118,16 @@ typedef void (^SFActionFailureBlock)(NSString *url, NSError *error, SFRequestFai
     // Start request logging
     [SFNetworkManager startRequestLoggingWithMethod:method URL:url parameters:parameters];
     
-    // Try to get response from cache
-    SFDBAPICache *model = [[SFDatabaseManager sharedInstance] getAPICacheWithURL:url
-                                                                          method:[SFNetworkManager stringForMethod:method]
-                                                                      parameters:parameters];
-    
     NSURLSessionDataTask *task = nil;
+    
+    SFDBAPICache *model = nil;
+    
+    if (!ignoreCache) {
+        // Try to get response from cache
+        model = [[SFDatabaseManager sharedInstance] getAPICacheWithURL:url
+                                                                method:[SFNetworkManager stringForMethod:method]
+                                                            parameters:parameters];
+    }
     
     if (model) {
         

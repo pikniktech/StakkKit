@@ -110,7 +110,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - StakkKit (0.9.1):
+  - StakkKit (0.9.4):
     - AFNetworking (~> 3.1.0)
     - CocoaLumberjack (~> 3.0.0)
     - FBSDKCoreKit
@@ -165,7 +165,7 @@ SPEC CHECKSUMS:
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  StakkKit: b761455567e307212b8c5c8aab6103b3db699868
+  StakkKit: 282beee8ff9fc390c96272da9ed5fa7f75632283
 
 PODFILE CHECKSUM: 7a76d92aa187d956988255c69283b27cfb15c832
 

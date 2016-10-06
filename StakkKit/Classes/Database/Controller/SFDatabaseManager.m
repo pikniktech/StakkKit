@@ -19,8 +19,11 @@
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
 
-// Constants
-static NSString * const kStoreName = @"StakkKit";
+@interface SFDatabaseManager ()
+
+@property (nonatomic, strong) NSString *storeName;
+
+@end
 
 @implementation SFDatabaseManager
 
@@ -35,7 +38,6 @@ static NSString * const kStoreName = @"StakkKit";
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[[self class] alloc] init];
-        [sharedInstance setup];
     });
     
     return sharedInstance;
@@ -43,23 +45,25 @@ static NSString * const kStoreName = @"StakkKit";
 
 #pragma mark - Setup
 
+- (void)setupWithStoreName:(NSString *)storeName {
+    
+    self.storeName = storeName;
+    [self setup];
+}
+
 - (void)setup {
     
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
-    [MagicalRecord setupCoreDataStackWithStoreNamed:kStoreName];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:[self store]];
     
     SFLogDB(@"Database setup completed");
 }
 
 #pragma mark - Public
 
-- (void)reset
-{
-    [MagicalRecord cleanUp];
+- (void)reset {
     
-    NSString *dbStore = [MagicalRecord defaultStoreName];
-    
-    NSURL *storeURL = [NSPersistentStore MR_urlForStoreName:dbStore];
+    NSURL *storeURL = [NSPersistentStore MR_urlForStoreName:[self store]];
     NSURL *walURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-wal"];
     NSURL *shmURL = [[storeURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"sqlite-shm"];
     
@@ -76,11 +80,12 @@ static NSString * const kStoreName = @"StakkKit";
     
     if (result) {
         
+        [MagicalRecord cleanUp];
         [self setup];
         
     } else {
         
-        SFLogDB(@"An error has occurred while deleting %@ error %@", dbStore, error);
+        SFLogDB(@"An error has occurred while deleting %@ error %@", self.store, error);
     }
 }
 
@@ -204,6 +209,11 @@ static NSString * const kStoreName = @"StakkKit";
     }
     
     SFLogDB(@"%@", log);
+}
+
+- (NSString *)store {
+    
+    return [NSString stringWithFormat:@"%@.sqlite", self.storeName];
 }
 
 @end
