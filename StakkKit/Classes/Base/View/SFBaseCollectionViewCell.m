@@ -44,4 +44,21 @@
     return NSStringFromClass([self class]);
 }
 
+#pragma mark - Setters
+
+- (void)setBaseView:(UIView *)baseView {
+    
+    if (_baseView) {
+        
+        [_baseView removeFromSuperview];
+    }
+    
+    _baseView = baseView;
+    
+    if (_baseView) {
+        
+        [self.contentView addSubview:_baseView];
+    }
+}
+
 @end
