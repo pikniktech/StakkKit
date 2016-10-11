@@ -123,6 +123,8 @@ static CGFloat const kDefaultBorderWidth = 1.0;
     if (_baseView) {
         
         [self.contentView addSubview:_baseView];
+        _baseView.translatesAutoresizingMaskIntoConstraints = NO;
+        [_baseView autoPinEdgesToSuperviewEdges];
     }
 }
 

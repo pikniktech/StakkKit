@@ -8,6 +8,9 @@
 
 #import "SFBaseCollectionViewCell.h"
 
+// Frameworks
+#import <PureLayout/PureLayout.h>
+
 @implementation SFBaseCollectionViewCell
 
 #pragma mark - Initialization
@@ -58,6 +61,8 @@
     if (_baseView) {
         
         [self.contentView addSubview:_baseView];
+        _baseView.translatesAutoresizingMaskIntoConstraints = NO;
+        [_baseView autoPinEdgesToSuperviewEdges];
     }
 }
 
