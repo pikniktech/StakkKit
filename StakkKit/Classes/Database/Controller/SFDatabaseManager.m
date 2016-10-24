@@ -98,7 +98,7 @@
     __weak typeof(self) weakSelf = self;
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
         
-        SFDBAPICache *model = [weakSelf getAPICacheWithURL:url method:method parameters:parameters];
+        SFDBAPICache *model = [weakSelf getAPICacheWithURL:url method:method parameters:parameters context:localContext];
         
         if (!model) {
             
@@ -124,7 +124,8 @@
 
 - (SFDBAPICache *)getAPICacheWithURL:(NSString *)url
                               method:(NSString *)method
-                          parameters:(NSDictionary *)parameters {
+                          parameters:(NSDictionary *)parameters
+                             context:(NSManagedObjectContext *)context {
     
     NSPredicate *urlFilter = [NSPredicate predicateWithFormat:@"url contains[cd] %@", url];
     NSPredicate *methodFilter = [NSPredicate predicateWithFormat:@"method contains[cd] %@", method];
@@ -140,7 +141,7 @@
     
     NSPredicate *finalFilter = [NSCompoundPredicate andPredicateWithSubpredicates:filters];
     
-    SFDBAPICache *model = [SFDBAPICache MR_findFirstWithPredicate:finalFilter];
+    SFDBAPICache *model = context ? [SFDBAPICache MR_findFirstWithPredicate:finalFilter inContext:context] : [SFDBAPICache MR_findFirstWithPredicate:finalFilter];
     
     if (model) {
         
@@ -159,6 +160,13 @@
     }
     
     return model;
+}
+
+- (SFDBAPICache *)getAPICacheWithURL:(NSString *)url
+                              method:(NSString *)method
+                          parameters:(NSDictionary *)parameters {
+    
+    return [self getAPICacheWithURL:url method:method parameters:parameters context:nil];
 }
 
 #pragma mark - Helpers
