@@ -24,6 +24,9 @@ PODS:
     - CocoaLumberjack/Default
   - JSONModel (1.5.1)
   - Kiwi (2.4.0)
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
@@ -31,10 +34,11 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - StakkKit (0.9.4):
+  - StakkKit (0.9.9):
     - AFNetworking (~> 3.1.0)
     - CocoaLumberjack (~> 3.0.0)
     - JSONModel (~> 1.5.1)
+    - libextobjc/EXTScope (~> 0.4.1)
     - MagicalRecord (~> 2.3.2)
     - PureLayout (~> 3.0.2)
     - SDWebImage (~> 3.8.2)
@@ -52,11 +56,12 @@ SPEC CHECKSUMS:
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   JSONModel: fd2553dc9e6608a3f35bfc956a14be35395d3852
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  StakkKit: 0cc232ad8cd3e7ef2b48e4ebfe37c45ee9d8beba
+  StakkKit: cb302c0c31a0f2b103dd87e14e1f98e4b1343b92
 
 PODFILE CHECKSUM: 5ca746fbf47ac81d3379a315330efd1f9f6bf48d
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.0.beta.1

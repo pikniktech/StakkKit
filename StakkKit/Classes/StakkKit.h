@@ -9,6 +9,9 @@
 // Frameworks
 #import <PureLayout/PureLayout.h>
 
+// Macro
+#import <libextobjc/EXTScope.h>
+
 // Categories
 #import "NSString+SFAddition.h"
 #import "NSDictionary+SFAddition.h"
