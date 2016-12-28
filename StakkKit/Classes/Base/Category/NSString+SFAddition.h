@@ -12,4 +12,6 @@
 
 - (NSDictionary *)toDictionary;
 
+- (NSDate *)iso8601Date;
+
 @end

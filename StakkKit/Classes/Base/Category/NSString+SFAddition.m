@@ -8,6 +8,9 @@
 
 #import "NSString+SFAddition.h"
 
+// Models
+#import "SFConstant.h"
+
 @implementation NSString (SFAddition)
 
 - (NSDictionary *)toDictionary {
@@ -22,6 +25,16 @@
     }
     
     return response;
+}
+
+- (NSDate *)iso8601Date {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:kISO8601DateFormat];
+    
+    NSDate *iso8601Date = [dateFormatter dateFromString:self];
+    
+    return iso8601Date;
 }
 
 @end

@@ -27,6 +27,7 @@
     [self setupLogging];
     [self setupDatabaseManager];
     [self makeSampleRequest];
+    [self dateStringConvertExample];
 }
 
 #pragma mark - Helpers
@@ -63,6 +64,17 @@
                         
                         SFLogError(@"Request failed");
                     }];
+}
+
+- (void)dateStringConvertExample {
+    
+    NSDate *nowDate = [NSDate date];
+    
+    NSString *nowString = [nowDate iso8601String];
+    SFLogDebug(@"nowString = %@", nowString);
+    
+    NSDate *dateFromString = [nowString iso8601Date];
+    SFLogDebug(@"dateFromString = %@", dateFromString);
 }
 
 @end
