@@ -71,6 +71,13 @@ static CGFloat const kDefaultBorderWidth = 1.0;
     [self.contentView addSubview:_bottomSeparator];
 }
 
+#pragma mark - Setup Layer
+
+- (void)setupLayer {
+    
+    // Override hook
+}
+
 #pragma mark - Setup Constraints
 
 - (void)setupConstraints {

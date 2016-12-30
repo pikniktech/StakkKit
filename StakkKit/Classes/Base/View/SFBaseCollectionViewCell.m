@@ -33,6 +33,13 @@
     // Override hook
 }
 
+#pragma mark - Setup Layer
+
+- (void)setupLayer {
+    
+    // Override hook
+}
+
 #pragma mark - Setup Constraints
 
 - (void)setupConstraints {

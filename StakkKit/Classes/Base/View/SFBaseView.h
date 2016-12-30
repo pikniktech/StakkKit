@@ -12,6 +12,8 @@
 
 - (void)setup; // Override hook
 
+- (void)setupLayer; // Override hook
+
 - (void)setupConstraints; // Override hook
 
 @end
